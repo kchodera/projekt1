@@ -14,8 +14,7 @@ class MainController extends AbstractController
      */
     public function homepage()
     {
-        return new Response('OMG! My first page already! WOOO!');
-        //return $this->render('strona/home.html.twig');
+        return $this->render('strona/home.html.twig');
     }
 
     /**
@@ -23,9 +22,8 @@ class MainController extends AbstractController
      */
     public function show($slug)
     {
-        return new Response(sprintf(
-            'Big news is : %s',
-            $slug
-        ));
+        return $this->render('strona/news.html.twig', [
+            'title' => ucwords(str_replace('-',' ', $slug))
+        ]);
     }
 }
